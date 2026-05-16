@@ -1,0 +1,44 @@
+name: build
+on: [push, pull_request]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Setup Ren'Py
+        uses: remarkablegames/setup-renpy@v2
+        with:
+          web: true
+
+      - name: Delete unnecessary files
+        run: >
+          find .
+          ! -name "icon.*"
+          ! -name "progressive_download.txt"
+          ! -name "web-*"
+          ! -path "*/.*"
+          ! -path "*game*"
+          -delete
+
+      - name: Build web
+        run: renpy-launcher web_build . --destination web
+
+      - name: Deploy site
+        if: github.ref_name == 'master'
+        uses: remarkablemark/gitploy-action@v1
+        with:
+          directory: web
+
+      - name: Upload artifacts
+        if: github.ref_name == 'master'
+        uses: actions/upload-artifact@v7
+        with:
+          name: web
+          path: web
