@@ -1,0 +1,38 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/script.rpy", line 27: choice menuitem expects a non-empty block.
+    "Gentle Support Mode (Soft encouragement, low pressure)":
+                                                             ^
+
+File "game/script.rpy", line 37: if statement expects a non-empty block.
+    if ai_mode == "gentle":
+                           ^
+
+File "game/script.rpy", line 39: expected statement.
+    else:
+        ^
+
+File "game/script.rpy", line 44: expected statement.
+    n
+     ^
+
+File "game/script.rpy", line 53: else clause expects a non-empty block.
+    else:
+         ^
+
+File "game/script.rpy", line 83: Line is indented, but the preceding say statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    jump setting_three_dinner
+    ^
+
+File "game/script.rpy", line 90: menu statement expects a non-empty block.
+    menu:
+        ^
+
+File "game/script.rpy", line 91: expected statement.
+    "Give a scripted, masked answer: 'I'm fine, just tired!' and force eye contact":
+                                                                                   ^
+
+Ren'Py Version: Ren'Py 8.5.3.26051504
+Sat May 16 20:44:03 2026
